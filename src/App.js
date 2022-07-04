@@ -1,12 +1,17 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Wrapper } from "./App.styles";
+import Nav from "./components/Nav";
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/about" element={<About />} />
-      </Routes>
-    </Router>
+    <Wrapper>
+      <Router>
+        <Nav />
+        <Routes>
+          <Route path="/about" element={<About />} />
+        </Routes>
+      </Router>
+    </Wrapper>
   );
 }
 
