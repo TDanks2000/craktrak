@@ -6,4 +6,7 @@ export const DefaultTheme = {
     bg: "#1f2429",
     navBg: "#2f363d",
   },
+  text: {
+    primary: "#fff",
+  },
 };
