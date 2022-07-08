@@ -1,6 +1,6 @@
 const axios = require("axios");
 
-const PORT = 3003 || 3004;
+const PORT = 3004 || 4000;
 const baseURL = `http://localhost:${PORT}/api/game`;
 const API = axios.create({ baseURL: baseURL });
 

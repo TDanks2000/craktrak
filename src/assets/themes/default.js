@@ -8,5 +8,7 @@ export const DefaultTheme = {
   },
   text: {
     primary: "#fff",
+    warning: "#f57c00",
+    success: "#388e3c",
   },
 };
