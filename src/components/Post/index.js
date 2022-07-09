@@ -13,17 +13,17 @@ import {
 } from "./Post.styles";
 
 function Post({ data }) {
-  const { name, cover, release_dates } = data;
+  const { name, cover, release_dates, id } = data;
   const isReleased = useIsReleased(release_dates[0].date);
 
   const { cracked, loading } = useCrack(isReleased ? name : null);
 
   const ImgUrl = "https://images.igdb.com/igdb/image/upload/t_cover_big/";
-  const img = data.cover ? data.cover.image_id : "";
+  const img = cover ? cover.image_id : "";
   const Img = `${ImgUrl}${img}.png`;
 
   return (
-    <PostWrapper img={Img}>
+    <PostWrapper img={Img} to={`/game/${name}/${id}`}>
       <PostContainer>
         <TopInfo>
           {isReleased && <CrackStatus cracked={cracked} loading={loading} />}

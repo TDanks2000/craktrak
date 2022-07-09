@@ -1,6 +1,7 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
-export const PostWrapper = styled.div`
+export const PostWrapper = styled(Link)`
   overflow: hidden;
   position: relative;
   width: 150px;
