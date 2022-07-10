@@ -3,13 +3,22 @@ import styled from "styled-components";
 export const SearchResultWrapper = styled.div`
   width: 100%;
   overflow: hidden;
-  padding: 10px 5px;
-  background-color: white;
   border-bottom: 2px solid ${({ theme }) => theme.base.mainColor};
   cursor: pointer;
+  background-image: url(${(props) => props.img});
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
   &:hover {
     opacity: 0.8;
   }
+`;
+
+export const SearchResultContainer = styled.div`
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 1.2em 4px;
 `;
 
 export const Name = styled.div`
@@ -20,4 +29,5 @@ export const Name = styled.div`
   line-clamp: 1;
   -webkit-box-orient: vertical;
   width: 100%;
+  color: ${({ theme }) => theme.text.primary};
 `;

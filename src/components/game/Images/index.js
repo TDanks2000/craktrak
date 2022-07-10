@@ -13,7 +13,6 @@ function Images({ imgs }) {
 
   return (
     <SlidesContainer>
-      src\components\Post\Content\Content.styles.js
       <Slides {...settings}>
         {imgs.map((img) => (
           <img

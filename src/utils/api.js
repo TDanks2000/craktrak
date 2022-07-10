@@ -17,13 +17,16 @@ const Urls = {
 export const top_rated = async (offset = 0, limit = 6) =>
   API.get(`${Urls.top_rated}?offset=${offset}&limit=${limit}`);
 
+export const getAllGames = async (offset = 0, limit = 40) =>
+  API.get(`${Urls.all}?offset=${offset}&limit=${limit}`);
+
 export const most_anticipated = async (offset = 0, limit = 6) =>
   API.get(`${Urls.most_anticipated}?offset=${offset}&limit=${limit}`);
 
 export const trending = async (offset = 0, limit = 6) =>
   API.get(`${Urls.trending}?offset=${offset}&limit=${limit}`);
 
-export const search = async (search, limit = 4) =>
+export const search = async (search, limit = 5) =>
   API.get(`${Urls.search}?search=${search}&limit=${limit}`);
 
 export const getGame = async (id) => API.get(`${Urls.get}/${id}`);

@@ -31,7 +31,13 @@ function SearchBar() {
             onChange={handleChange}
           />
         </form>
-        {results && <SearchResults results={results} />}
+        {results && (
+          <SearchResults
+            results={results}
+            setResults={setResults}
+            setValue={setValue}
+          />
+        )}
       </FormContainer>
     </SearchBarContainer>
   );
