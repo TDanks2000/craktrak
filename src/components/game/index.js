@@ -1,40 +1,66 @@
-import React, { useEffect, useState } from "react";
-import { useParams, useLocation } from "react-router-dom";
+import React from "react";
+import CrackedInfo from "./crackedInfo";
 
-import { getGame } from "../../utils/api";
-import { Block, Desc, GameContainer, Left, Right, Title } from "./game.styles";
+import {
+  Block,
+  BlockInfo,
+  Desc,
+  GameContainer,
+  Genre,
+  GenreContainer,
+  Left,
+  Right,
+  Title,
+  Under,
+} from "./game.styles";
+import Images from "./Images";
+import InfoText from "./InfoText";
 import PosterComponent from "./Poster";
+import Video from "./Video";
 
-function Game() {
-  const location = useLocation();
-  const { id, title } = useParams();
-  const [info, setInfo] = useState(null);
+function GameComponent({ data, cracked, crackedData }) {
+  const { name, cover, release_dates, summary, videos, screenshots, genres } =
+    data;
+  const release_date = release_dates[0];
 
-  useEffect(() => {
-    return () => {
-      getGame(id).then(({ data }) => setInfo(data[0]));
-    };
-  }, [id]);
-
-  if (!info) return null;
-
-  const { name, cover, release_dates, summary } = info;
-
-  if (id.toString() !== info.id.toString()) return window.location.reload();
+  console.log(data);
 
   return (
     <GameContainer>
+      <Title>{name}</Title>
       <Left>
         <PosterComponent cover={cover} name={name} />
       </Left>
       <Right>
         <Block>
-          <Title>{name}</Title>
           <Desc>{summary}</Desc>
+          <BlockInfo>
+            <InfoText explain={`Release date`} text={release_date.human} />
+            {cracked === null ? (
+              <InfoText explain={`crack status`} text={"Unreleased"} />
+            ) : (
+              <CrackedInfo data={crackedData} cracked={cracked} />
+            )}
+          </BlockInfo>
+        </Block>
+        <Block>
+          <Title>Genres</Title>
+          <GenreContainer>
+            {genres && genres.map((genre) => <Genre>{genre.name}</Genre>)}
+          </GenreContainer>
         </Block>
       </Right>
+      <Under>
+        <Title>Visuals</Title>
+        {videos && <Video VideoData={videos[0]} />}
+        {/* {videos.map((video) => {
+          if (!video.name.toLowerCase().includes("trailer")) return null;
+          return <Video VideoData={video} />;
+        })} */}
+        {screenshots && <Images imgs={screenshots} />}
+      </Under>
     </GameContainer>
   );
 }
 
-export default Game;
+export default GameComponent;

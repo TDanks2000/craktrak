@@ -1,4 +1,4 @@
-import styled, { ThemeContext } from "styled-components";
+import styled from "styled-components";
 
 export const GameContainer = styled.div`
   width: 90%;
@@ -23,6 +23,7 @@ export const Block = styled.div`
   padding: 10px 20px;
   background: rgba(255, 255, 255, 0.1);
   border-radius: 5px;
+  margin-bottom: 1em;
 `;
 
 export const Title = styled.h1`
@@ -39,4 +40,41 @@ export const Title = styled.h1`
 
 export const Desc = styled.p`
   color: ${({ theme }) => theme.text.secondary};
+`;
+
+export const BlockInfo = styled.div`
+  width: 100%;
+  margin-top: 1.3em;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+`;
+
+export const Under = styled.div`
+  display: inline-block;
+  width: 100%;
+  margin-top: 1.3em;
+  margin-bottom: 0.3em;
+  overflow: hidden;
+`;
+
+export const GenreContainer = styled.div`
+  width: 100%;
+  display: inline-flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 10px;
+`;
+
+export const Genre = styled.p`
+  display: inline-block;
+  padding: 5px 15px;
+  border-radius: 5px;
+  background: ${({ theme }) => theme.text.secondary};
+  color: ${({ theme }) => theme.text.primary};
+  font-size: 0.8em;
+  text-transform: uppercase;
 `;

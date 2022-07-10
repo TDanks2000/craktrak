@@ -9,6 +9,7 @@ const Urls = {
   getGames: "/games",
   top_rated: "/top_rated",
   most_anticipated: "/most_anticipated",
+  trending: "/trending",
   search: "/search",
   get: "/get",
 };
@@ -18,6 +19,9 @@ export const top_rated = async (offset = 0, limit = 6) =>
 
 export const most_anticipated = async (offset = 0, limit = 6) =>
   API.get(`${Urls.most_anticipated}?offset=${offset}&limit=${limit}`);
+
+export const trending = async (offset = 0, limit = 6) =>
+  API.get(`${Urls.trending}?offset=${offset}&limit=${limit}`);
 
 export const search = async (search, limit = 4) =>
   API.get(`${Urls.search}?search=${search}&limit=${limit}`);

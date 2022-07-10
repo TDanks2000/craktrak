@@ -1,8 +1,22 @@
 import React from "react";
-import { Cracked, CrackStatusContainer, NotCracked } from "./Content.styles";
+import {
+  Cracked,
+  CrackStatusContainer,
+  NotCracked,
+  Unreleased,
+} from "./Content.styles";
 
 function CrackStatus({ loading, cracked }) {
   if (loading) return null;
+
+  if (cracked === null) {
+    return (
+      <CrackStatusContainer>
+        <Unreleased>UNRELEASED</Unreleased>
+      </CrackStatusContainer>
+    );
+  }
+
   return (
     <CrackStatusContainer>
       {cracked ? (

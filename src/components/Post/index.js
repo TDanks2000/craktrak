@@ -4,8 +4,6 @@ import useIsReleased from "../../hooks/useIsReleased";
 import CrackStatus from "./Content/CrackStatus";
 import {
   BottomInfo,
-  Cracked,
-  NotCracked,
   PostContainer,
   PostWrapper,
   Title,
@@ -14,7 +12,7 @@ import {
 
 function Post({ data }) {
   const { name, cover, release_dates, id } = data;
-  const isReleased = useIsReleased(release_dates[0].date);
+  const isReleased = useIsReleased(release_dates[0].human);
 
   const { cracked, loading } = useCrack(isReleased ? name : null);
 
@@ -26,7 +24,11 @@ function Post({ data }) {
     <PostWrapper img={Img} to={`/game/${name}/${id}`}>
       <PostContainer>
         <TopInfo>
-          {isReleased && <CrackStatus cracked={cracked} loading={loading} />}
+          {isReleased ? (
+            <CrackStatus cracked={cracked} loading={loading} />
+          ) : (
+            <CrackStatus cracked={null} loading={loading} />
+          )}
         </TopInfo>
         <BottomInfo>
           <Title>{name}</Title>

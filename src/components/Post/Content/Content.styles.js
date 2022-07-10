@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { FaCheckCircle, FaQuestionCircle } from "react-icons/fa";
+// import { FaCheckCircle, FaQuestionCircle } from "react-icons/fa";
 
 export const CrackStatusContainer = styled.div`
   float: right;
@@ -23,4 +23,8 @@ export const Cracked = styled(defaultCrackStatus)`
 
 export const NotCracked = styled(defaultCrackStatus)`
   background: ${({ theme }) => theme.text.warning};
+`;
+
+export const Unreleased = styled(defaultCrackStatus)`
+  background: ${({ theme }) => theme.text.confused};
 `;

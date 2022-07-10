@@ -26,7 +26,7 @@ function SearchBar() {
       <FormContainer>
         <form onSubmit={handleSubmit}>
           <SearchBarInput
-            placeholder="Search?"
+            placeholder="Search for a game..."
             value={value}
             onChange={handleChange}
           />

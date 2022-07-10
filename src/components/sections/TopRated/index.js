@@ -1,4 +1,4 @@
-import React, { Suspense, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { top_rated } from "../../../utils/api";
 import Post from "../../Post";
 import { Spinner } from "../sections.styles";

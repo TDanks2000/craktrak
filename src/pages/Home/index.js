@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import Post from "../../components/Post";
+import React from "react";
 import MostAnticipated from "../../components/sections/MostAnticipated";
 import TopRated from "../../components/sections/TopRated";
 import { HomeContainer, PostWrapper, Title, Wrapper } from "./Home.styles";
