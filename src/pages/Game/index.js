@@ -9,24 +9,30 @@ import useIsReleased from "../../hooks/useIsReleased";
 import { getGame } from "../../utils/api";
 
 function Game() {
-  const { id } = useParams();
+  const { id, title } = useParams();
   const [info, setInfo] = useState(null);
 
   useEffect(() => {
     return () => {
-      getGame(id).then(({ data }) => setInfo(data[0]));
+      getGame(id.toLowerCase() !== "unkown" ? id : title).then(({ data }) => {
+        console.log(data);
+        return setInfo(data[0]);
+      });
     };
-  }, [id]);
+  }, [title]);
 
-  const isReleased = useIsReleased(info?.release_dates[0].human);
+  // return console.log(info);
+  const isReleased = useIsReleased(
+    info && info.release_dates ? info.release_dates[0].human : null
+  );
   const { cracked, data: crackedData } = useCrack(
     isReleased ? info?.name : null
   );
+
   if (!info) return null;
 
-  if (id.toString() !== info.id.toString()) return window.location.reload();
-
   if (!isReleased) return <GameComponent data={info} cracked={null} />;
+
   return (
     <GameComponent data={info} cracked={cracked} crackedData={crackedData} />
   );

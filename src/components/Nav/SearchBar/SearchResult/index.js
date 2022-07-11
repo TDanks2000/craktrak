@@ -9,7 +9,9 @@ import { Link } from "react-router-dom";
 function SearchResult({ data, setResults, setValue }) {
   const { screenshots } = data;
 
-  const img = `https://images.igdb.com/igdb/image/upload/t_screenshot_big/${screenshots[0].image_id}.jpg`;
+  const img = screenshots
+    ? `https://images.igdb.com/igdb/image/upload/t_screenshot_big/${screenshots[0].image_id}.jpg`
+    : null;
 
   const handleClick = (event) => {
     setResults(null);

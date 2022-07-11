@@ -12,8 +12,6 @@ function Games() {
     };
   }, []);
 
-  console.log(info);
-
   return (
     <GamesContainer>
       <Title>Games</Title>

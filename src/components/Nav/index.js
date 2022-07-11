@@ -11,6 +11,7 @@ function Nav() {
       <Links>
         <Link to="/">Home</Link>
         <Link to="/games">Games</Link>
+        <Link to="/gamesCalendar">Calendar</Link>
       </Links>
       <SearchBar />
     </Wrapper>

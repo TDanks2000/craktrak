@@ -33,7 +33,7 @@ export const Title = styled.h1`
   white-space: nowrap;
   font-size: 1.5em;
   font-weight: bold;
-  margin-bottom: 0.5em;
+  padding-bottom: 0.6em;
   text-transform: uppercase;
   color: ${({ theme }) => theme.text.primary};
 `;
@@ -58,6 +58,8 @@ export const Under = styled.div`
   margin-top: 1.3em;
   margin-bottom: 0.3em;
   overflow: hidden;
+  padding-top: 10px;
+  padding-bottom: 5em;
 `;
 
 export const GenreContainer = styled.div`

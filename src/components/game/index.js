@@ -19,11 +19,17 @@ import PosterComponent from "./Poster";
 import Video from "./Video";
 
 function GameComponent({ data, cracked, crackedData }) {
-  const { name, cover, release_dates, summary, videos, screenshots, genres } =
-    data;
-  const release_date = release_dates[0];
-
-  console.log(data);
+  const {
+    name,
+    cover,
+    release_dates,
+    first_release_date,
+    summary,
+    videos,
+    screenshots,
+    genres,
+  } = data;
+  const release_date = release_dates ? release_dates[0] : null;
 
   return (
     <GameContainer>
@@ -35,7 +41,10 @@ function GameComponent({ data, cracked, crackedData }) {
         <Block>
           <Desc>{summary}</Desc>
           <BlockInfo>
-            <InfoText explain={`Release date`} text={release_date.human} />
+            <InfoText
+              explain={`Release date`}
+              text={release_date?.human || "TBD"}
+            />
             {cracked === null ? (
               <InfoText explain={`crack status`} text={"Unreleased"} />
             ) : (

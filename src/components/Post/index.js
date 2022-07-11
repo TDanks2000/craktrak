@@ -10,7 +10,12 @@ import {
   TopInfo,
 } from "./Post.styles";
 
-function Post({ data }) {
+function Post({
+  data,
+  convertImg = true,
+  preCrackStatus = false,
+  LinkTo = false,
+}) {
   const { name, cover, release_dates, id } = data;
   const isReleased = useIsReleased(release_dates[0].human);
 
@@ -18,7 +23,23 @@ function Post({ data }) {
 
   const ImgUrl = "https://images.igdb.com/igdb/image/upload/t_cover_big/";
   const img = cover ? cover.image_id : "";
-  const Img = `${ImgUrl}${img}.png`;
+  const Img = convertImg ? `${ImgUrl}${img}.png` : data.cover;
+
+  const To = LinkTo ? LinkTo : `/game/${name}/${id}`;
+
+  if (preCrackStatus)
+    return (
+      <PostWrapper img={Img} to={To}>
+        <PostContainer>
+          <TopInfo>
+            <CrackStatus cracked={true} loading={loading} />
+          </TopInfo>
+          <BottomInfo>
+            <Title>{name}</Title>
+          </BottomInfo>
+        </PostContainer>
+      </PostWrapper>
+    );
 
   return (
     <PostWrapper img={Img} to={`/game/${name}/${id}`}>

@@ -1,10 +1,14 @@
 import React from "react";
-import { VideoStyled } from "./Video.styles";
+import { VideoContainer, VideoStyled } from "./Video.styles";
 
 function Video({ VideoData }) {
   const { video_id } = VideoData;
 
-  return <VideoStyled videoId={video_id} />;
+  return (
+    <VideoContainer>
+      <VideoStyled videoId={video_id} />
+    </VideoContainer>
+  );
 }
 
 export default Video;

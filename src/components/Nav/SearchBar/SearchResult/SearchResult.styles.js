@@ -5,12 +5,16 @@ export const SearchResultWrapper = styled.div`
   overflow: hidden;
   border-bottom: 2px solid ${({ theme }) => theme.base.mainColor};
   cursor: pointer;
-  background-image: url(${(props) => props.img});
+  ${(props) => {
+    if (!props.img) return `background: black;`;
+    return `background-image: url(${props.img});`;
+  }}
+
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   &:hover {
-    opacity: 0.8;
+    opacity: 0.9;
   }
 `;
 
