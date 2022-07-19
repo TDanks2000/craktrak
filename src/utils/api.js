@@ -31,7 +31,11 @@ export const trending = async (offset = 0, limit = 6) =>
 export const search = async (search, limit = 5) =>
   API.get(`${Urls.search}?search=${search}&limit=${limit}`);
 
-export const getGame = async (id) => API.get(`${Urls.get}/${id}`);
+export const getGame = async (title, id) => {
+  return title && !id
+    ? API.get(`${Urls.get}?title=${title}`)
+    : API.get(`${Urls.get}?title=${title}&id=${id}`);
+};
 
 export const recentlyCracked = async () => API.get(Urls.recentlyCracked);
 

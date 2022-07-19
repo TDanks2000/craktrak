@@ -80,3 +80,28 @@ export const Genre = styled.p`
   font-size: 0.8em;
   text-transform: uppercase;
 `;
+
+export const HltbContainer = styled.div`
+  width: 100%;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 10px;
+`;
+
+export const Hltb = styled.p`
+  width: 330px;
+  display: inline-block;
+  padding: 10px 15px;
+  border-radius: 5px;
+  background: ${({ theme }) => theme.text.secondary};
+  color: ${({ theme }) => theme.text.primary};
+  font-size: 0.9em;
+  text-transform: uppercase;
+`;
+
+export const Strong = styled.span`
+  font-weight: bold;
+  float: right;
+`;

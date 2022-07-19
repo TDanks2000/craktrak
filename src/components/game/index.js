@@ -1,4 +1,6 @@
 import React from "react";
+import useCrack from "../../hooks/useCrack";
+import useIsReleased from "../../hooks/useIsReleased";
 import CrackedInfo from "./crackedInfo";
 
 import {
@@ -8,8 +10,11 @@ import {
   GameContainer,
   Genre,
   GenreContainer,
+  Hltb,
+  HltbContainer,
   Left,
   Right,
+  Strong,
   Title,
   Under,
 } from "./game.styles";
@@ -18,7 +23,9 @@ import InfoText from "./InfoText";
 import PosterComponent from "./Poster";
 import Video from "./Video";
 
-function GameComponent({ data, cracked, crackedData }) {
+function GameComponent({ data }) {
+  const igdbData = data[0];
+  const hltbData = data[1];
   const {
     name,
     cover,
@@ -28,8 +35,18 @@ function GameComponent({ data, cracked, crackedData }) {
     videos,
     screenshots,
     genres,
-  } = data;
+    total_rating,
+  } = igdbData;
+
   const release_date = release_dates ? release_dates[0] : null;
+
+  const isReleased = useIsReleased(release_date ? release_date.human : null);
+
+  const {
+    cracked,
+    loading,
+    data: crackedData,
+  } = useCrack(isReleased ? name : null);
 
   return (
     <GameContainer>
@@ -41,6 +58,14 @@ function GameComponent({ data, cracked, crackedData }) {
         <Block>
           <Desc>{summary}</Desc>
           <BlockInfo>
+            {isReleased && (
+              <InfoText
+                explain={`Rating`}
+                text={
+                  Math.round((total_rating / 10 + Number.EPSILON) * 10) / 10
+                }
+              />
+            )}
             <InfoText
               explain={`Release date`}
               text={release_date?.human || "TBD"}
@@ -58,6 +83,31 @@ function GameComponent({ data, cracked, crackedData }) {
             {genres && genres.map((genre) => <Genre>{genre.name}</Genre>)}
           </GenreContainer>
         </Block>
+        {hltbData && (
+          <Block>
+            <Title>How long to beat</Title>
+            <HltbContainer>
+              {hltbData.gameplayMain > 0 && (
+                <Hltb>
+                  story: <Strong>{timeConvert(hltbData.gameplayMain)}</Strong>
+                </Hltb>
+              )}
+              {hltbData.gameplayMainExtra > 0 && (
+                <Hltb>
+                  story + extras:{" "}
+                  <Strong>{timeConvert(hltbData.gameplayMainExtra)}</Strong>
+                </Hltb>
+              )}
+              {hltbData.gameplayCompletionist > 0 && (
+                <Hltb>
+                  100%:{" "}
+                  <Strong>{timeConvert(hltbData.gameplayCompletionist)}</Strong>
+                  hours
+                </Hltb>
+              )}
+            </HltbContainer>
+          </Block>
+        )}
       </Right>
       <Under>
         <Title>Visuals</Title>
@@ -71,5 +121,14 @@ function GameComponent({ data, cracked, crackedData }) {
     </GameContainer>
   );
 }
+
+const timeConvert = (n) => {
+  var num = (n * 3600) / 60;
+  var hours = num / 60;
+  var rhours = Math.floor(hours);
+  var minutes = (hours - rhours) * 60;
+  var rminutes = Math.round(minutes);
+  return `${rhours} hours ${rminutes} minutes`;
+};
 
 export default GameComponent;

@@ -3,9 +3,6 @@ import { useParams } from "react-router-dom";
 
 import GameComponent from "../../components/game";
 
-import useCrack from "../../hooks/useCrack";
-import useIsReleased from "../../hooks/useIsReleased";
-
 import { getGame } from "../../utils/api";
 
 function Game() {
@@ -14,28 +11,24 @@ function Game() {
 
   useEffect(() => {
     return () => {
-      getGame(id.toLowerCase() !== "unkown" ? id : title).then(({ data }) => {
-        console.log(data);
-        return setInfo(data[0]);
-      });
+      if (isNaN(id)) {
+        console.log(isNaN(id));
+        getGame(title).then(({ data }) => {
+          return setInfo(data);
+        });
+      } else {
+        getGame(title, id).then(({ data }) => {
+          return setInfo(data);
+        });
+      }
     };
   }, [title]);
 
   // return console.log(info);
-  const isReleased = useIsReleased(
-    info && info.release_dates ? info.release_dates[0].human : null
-  );
-  const { cracked, data: crackedData } = useCrack(
-    isReleased ? info?.name : null
-  );
 
   if (!info) return null;
 
-  if (!isReleased) return <GameComponent data={info} cracked={null} />;
-
-  return (
-    <GameComponent data={info} cracked={cracked} crackedData={crackedData} />
-  );
+  return <GameComponent data={info} />;
 }
 
 export default Game;

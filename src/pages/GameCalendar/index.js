@@ -6,7 +6,7 @@ import {
   GamesComingMonth,
   MonthTitle,
   Wrapper,
-} from "./GameCalendar";
+} from "./GameCalendar.styles";
 
 function GamesCalendar() {
   const [info, setInfo] = useState([]);

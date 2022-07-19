@@ -2,6 +2,7 @@ import React from "react";
 import InfoText from "../InfoText";
 
 function CrackedInfo({ data, cracked }) {
+  console.log(cracked);
   if (!data?.Info)
     return (
       <>
