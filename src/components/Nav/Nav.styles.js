@@ -1,14 +1,19 @@
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
-export const Wrapper = styled.div`
+export const NavContainer = styled.div`
+  width: 98%;
+  margin: 0 auto;
   display: flex;
   justify-content: flex-start;
   gap: 15px;
   align-items: center;
   padding: 0.5rem 1rem;
+`;
+
+export const Wrapper = styled.div`
   background-color: ${({ theme }) => theme.base.navBg};
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
 `;
 
 export const Logo = styled.h1`

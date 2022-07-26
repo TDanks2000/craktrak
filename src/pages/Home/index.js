@@ -19,10 +19,16 @@ import {
 function Home() {
   return (
     <HomeContainer>
+      <InfoWarningBlock>
+        <InfoLargeParagraph>
+          We do not host or provide link to any cracks on CrakTrak website. We
+          only tell you status of cracks.
+        </InfoLargeParagraph>
+      </InfoWarningBlock>
       <InfoSuccessBlock>
         <InfoLargeParagraph>
-          CrakTrak is still under developers, the website may contain bugs. Some
-          pages may be slow or give an error
+          CrakTrak is still under development and, the website may contain bugs.
+          Some pages may be slow or give an error
         </InfoLargeParagraph>
       </InfoSuccessBlock>
 
@@ -48,15 +54,6 @@ function Home() {
           </PostWrapper>
         </Wrapper>
       </Left>
-      <Right>
-        <InfoWarningBlock>
-          <InfoParagraph>
-            We do not host or provide link to any cracks on CRAKTrak website.
-            <br />
-            We only tell you status of cracks.
-          </InfoParagraph>
-        </InfoWarningBlock>
-      </Right>
     </HomeContainer>
   );
 }

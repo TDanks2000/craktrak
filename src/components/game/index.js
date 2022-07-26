@@ -75,6 +75,12 @@ function GameComponent({ data }) {
             ) : (
               <CrackedInfo data={crackedData} cracked={cracked} />
             )}
+            {crackedData?.Info && (
+              <InfoText
+                explain={`Protection`}
+                text={JSON.parse(crackedData.Info.protections)[0]}
+              />
+            )}
           </BlockInfo>
         </Block>
         <Block>
@@ -83,7 +89,7 @@ function GameComponent({ data }) {
             {genres && genres.map((genre) => <Genre>{genre.name}</Genre>)}
           </GenreContainer>
         </Block>
-        {hltbData && (
+        {hltbData.gameplayMain > 0 && (
           <Block>
             <Title>How long to beat</Title>
             <HltbContainer>
@@ -102,7 +108,6 @@ function GameComponent({ data }) {
                 <Hltb>
                   100%:{" "}
                   <Strong>{timeConvert(hltbData.gameplayCompletionist)}</Strong>
-                  hours
                 </Hltb>
               )}
             </HltbContainer>

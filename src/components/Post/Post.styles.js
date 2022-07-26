@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 export const PostWrapper = styled(Link)`
   overflow: hidden;
   position: relative;
-  width: 150px;
-  height: 250px;
+  width: 200px;
+  height: 300px;
   background-image: url(${(props) => props.img});
   background-repeat: no-repeat;
   background-size: cover;
