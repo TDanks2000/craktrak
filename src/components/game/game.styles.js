@@ -1,12 +1,12 @@
 import styled from "styled-components";
 
 export const GameContainer = styled.div`
-  width: 90%;
+  width: 97%;
   margin: 0 auto;
   padding-top: 1.3em;
 `;
 
-const LeftW = "30%";
+const LeftW = "29%";
 
 export const Left = styled.div`
   width: ${LeftW};
@@ -44,12 +44,12 @@ export const Desc = styled.p`
 
 export const BlockInfo = styled.div`
   width: 100%;
-  margin-top: 1.3em;
   display: flex;
   flex-direction: row;
   align-items: flex-start;
   justify-content: space-between;
   gap: 10px;
+  padding: 1.5em 0;
 `;
 
 export const Under = styled.div`

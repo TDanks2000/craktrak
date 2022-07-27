@@ -20,13 +20,13 @@ export const Title = styled.h1`
 export const PostWrapper = styled.div`
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   justify-content: flex-start;
   align-items: center;
   gap: 25px;
 `;
 
-const LeftW = "71%";
+const LeftW = "75%";
 
 export const Left = styled.div`
   float: left;
