@@ -15,9 +15,10 @@ export const Title = styled.h1`
 `;
 
 export const GamesWrapper = styled.div`
-  width: 95%;
+  width: 100%;
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   grid-gap: 2em;
   margin: 0 auto;
+  overflow: hidden;
 `;

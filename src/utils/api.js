@@ -10,6 +10,7 @@ const Urls = {
   top_rated: "/top_rated",
   most_anticipated: "/most_anticipated",
   trending: "/trending",
+  popular: "/popular",
   search: "/search",
   get: "/get",
   recentlyCracked: "/crack/recently",
@@ -36,6 +37,9 @@ export const getGame = async (title, id) => {
     ? API.get(`${Urls.get}?title=${title}`)
     : API.get(`${Urls.get}?title=${title}&id=${id}`);
 };
+
+export const popular = async (limit = 6) =>
+  API.get(`${Urls.popular}?limit=${limit}`);
 
 export const recentlyCracked = async () => API.get(Urls.recentlyCracked);
 

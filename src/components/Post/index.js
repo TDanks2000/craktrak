@@ -17,12 +17,15 @@ function Post({
   LinkTo = false,
 }) {
   const { name, cover, release_dates, id } = data;
-  const isReleased = useIsReleased(release_dates[0].human);
+  const isReleased = useIsReleased(
+    release_dates ? release_dates[0].human : null
+  );
 
   const { cracked, loading } = useCrack(isReleased ? name : null);
 
+  console.log("name: " + name);
   const ImgUrl = "https://images.igdb.com/igdb/image/upload/t_cover_big/";
-  const img = cover ? cover.image_id : "";
+  const img = cover ? cover.image_id : null;
   const Img = convertImg ? `${ImgUrl}${img}.png` : data.cover;
 
   const To = LinkTo ? LinkTo : `/game/${name}/${id}`;
@@ -42,7 +45,12 @@ function Post({
     );
 
   return (
-    <PostWrapper img={Img} to={`/game/${name}/${id}`}>
+    <PostWrapper
+      img={
+        img !== null ? Img : `https://static-cdn.jtvnw.net/ttv-boxart/${id}.jpg`
+      }
+      to={img ? `/game/${name}/${id}` : `/game/${name}/null`}
+    >
       <PostContainer>
         <TopInfo>
           {isReleased ? (

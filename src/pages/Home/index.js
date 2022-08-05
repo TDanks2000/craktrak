@@ -2,6 +2,7 @@ import React from "react";
 import MostAnticipated from "../../components/sections/MostAnticipated";
 import Recently from "../../components/sections/RecentlyCracked";
 import TopRated from "../../components/sections/TopRated";
+import PopularComp from "../../components/sections/Popular";
 import {
   HomeContainer,
   InfoBlock,
@@ -37,6 +38,12 @@ function Home() {
           <Title>Recently Cracked</Title>
           <PostWrapper>
             <Recently />
+          </PostWrapper>
+        </Wrapper>
+        <Wrapper>
+          <Title>Popular</Title>
+          <PostWrapper>
+            <PopularComp />
           </PostWrapper>
         </Wrapper>
 

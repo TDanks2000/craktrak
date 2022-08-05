@@ -1,4 +1,5 @@
 import React from "react";
+import { useParams } from "react-router-dom";
 import useCrack from "../../hooks/useCrack";
 import useIsReleased from "../../hooks/useIsReleased";
 import CrackedInfo from "./crackedInfo";
@@ -24,6 +25,7 @@ import PosterComponent from "./Poster";
 import Video from "./Video";
 
 function GameComponent({ data }) {
+  let { title } = useParams();
   const igdbData = data[0];
   const hltbData = data[1];
   const {
@@ -46,7 +48,7 @@ function GameComponent({ data }) {
     cracked,
     loading,
     data: crackedData,
-  } = useCrack(isReleased ? name : null);
+  } = useCrack(isReleased ? decodeURI(title) : null);
 
   return (
     <GameContainer>
