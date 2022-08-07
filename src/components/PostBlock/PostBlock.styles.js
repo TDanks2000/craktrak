@@ -1,8 +1,6 @@
 import styled from "styled-components";
 
 export const PostBlockContainer = styled.div`
-  width: 380px;
-  height: 230px;
   background-image: url(${(props) => props.img});
   background-repeat: no-repeat;
   background-size: cover;
@@ -10,6 +8,16 @@ export const PostBlockContainer = styled.div`
   border-radius: 6px;
   overflow: hidden;
   position: relative;
+  width: 380px;
+  height: 230px;
+  @media (min-width: 530px) {
+    width: 470px;
+    height: 250px;
+  }
+  @media (min-width: 1600px) {
+    width: 380px;
+    height: 230px;
+  }
 `;
 
 export const PostBlockWrapper = styled.div`

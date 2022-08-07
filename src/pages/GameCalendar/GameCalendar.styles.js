@@ -35,10 +35,18 @@ export const GamesComingMonth = styled.span`
 export const Wrapper = styled.div`
   padding: 1em 0;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
   grid-gap: 2em;
   align-items: center;
   width: 100%;
   margin: 0 auto;
   overflow: hidden;
+  @media (min-width: 100px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (min-width: 330px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @media (min-width: 1600px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
 `;

@@ -33,34 +33,32 @@ function Home() {
         </InfoLargeParagraph>
       </InfoSuccessBlock>
 
-      <Left>
-        <Wrapper>
-          <Title>Recently Cracked</Title>
-          <PostWrapper>
-            <Recently />
-          </PostWrapper>
-        </Wrapper>
-        <Wrapper>
-          <Title>Popular</Title>
-          <PostWrapper>
-            <PopularComp />
-          </PostWrapper>
-        </Wrapper>
+      <Wrapper>
+        <Title>Recently Cracked</Title>
+        <PostWrapper>
+          <Recently />
+        </PostWrapper>
+      </Wrapper>
+      <Wrapper>
+        <Title>Popular</Title>
+        <PostWrapper>
+          <PopularComp />
+        </PostWrapper>
+      </Wrapper>
 
-        <Wrapper>
-          <Title>Top rated</Title>
-          <PostWrapper>
-            <TopRated />
-          </PostWrapper>
-        </Wrapper>
+      <Wrapper>
+        <Title>Top rated</Title>
+        <PostWrapper>
+          <TopRated />
+        </PostWrapper>
+      </Wrapper>
 
-        <Wrapper>
-          <Title>Most Anticipated</Title>
-          <PostWrapper>
-            <MostAnticipated />
-          </PostWrapper>
-        </Wrapper>
-      </Left>
+      <Wrapper>
+        <Title>Most Anticipated</Title>
+        <PostWrapper>
+          <MostAnticipated />
+        </PostWrapper>
+      </Wrapper>
     </HomeContainer>
   );
 }

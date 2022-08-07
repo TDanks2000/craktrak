@@ -11,6 +11,14 @@ export const PostWrapper = styled(Link)`
   background-size: cover;
   background-position: center;
   border-radius: 6px;
+  @media (min-width: 300px) {
+    width: 100px;
+    height: 250px;
+  }
+  @media (min-width: 630px) {
+    width: 150px;
+    height: 250px;
+  }
 `;
 
 export const PostContainer = styled.div`

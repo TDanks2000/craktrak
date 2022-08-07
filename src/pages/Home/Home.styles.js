@@ -18,12 +18,19 @@ export const Title = styled.h1`
 `;
 
 export const PostWrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: flex-start;
+  display: grid;
   align-items: center;
   gap: 25px;
+  width: 50%;
+  @media (min-width: 100px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (min-width: 330px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @media (min-width: 900px) {
+    grid-template-columns: repeat(7, 1fr);
+  }
 `;
 
 const LeftW = "75%";
