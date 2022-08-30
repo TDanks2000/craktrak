@@ -30,6 +30,8 @@ function Post({
 
   const To = LinkTo ? LinkTo : `/game/${name}/${id}`;
 
+  console.log(name, LinkTo, "To", To);
+
   if (preCrackStatus)
     return (
       <PostWrapper img={Img} to={To}>
@@ -49,7 +51,7 @@ function Post({
       img={
         img !== null ? Img : `https://static-cdn.jtvnw.net/ttv-boxart/${id}.jpg`
       }
-      to={img ? `/game/${name}/${id}` : `/game/${name}/null`}
+      to={To}
     >
       <PostContainer>
         <TopInfo>

@@ -12,7 +12,13 @@ function PopularComp() {
   }, []);
 
   if (!info.length) return <Spinner />;
-  return info.map((res) => <Post data={res} key={res.id} />);
+  return info.map((res) => (
+    <Post
+      LinkTo={`/game/${encodeURIComponent(res.name)}`}
+      data={res}
+      key={res.id}
+    />
+  ));
 }
 
 export default PopularComp;

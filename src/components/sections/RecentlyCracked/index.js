@@ -29,7 +29,7 @@ function Recently() {
         key={sendToPost.id}
         convertImg={false}
         preCrackStatus={true}
-        LinkTo={`/game/${encodeURIComponent(sendToPost.name)}/unkown`}
+        LinkTo={`/game/${encodeURIComponent(sendToPost.name)}`}
       />
     );
   });

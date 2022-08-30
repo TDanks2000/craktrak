@@ -91,30 +91,32 @@ function GameComponent({ data }) {
             {genres && genres.map((genre) => <Genre>{genre.name}</Genre>)}
           </GenreContainer>
         </Block>
-        {hltbData.gameplayMain > 0 && (
+        {hltbData?.gameplayMain > 0 ? (
           <Block>
             <Title>How long to beat</Title>
             <HltbContainer>
-              {hltbData.gameplayMain > 0 && (
+              {hltbData?.gameplayMain ? (
                 <Hltb>
-                  story: <Strong>{timeConvert(hltbData.gameplayMain)}</Strong>
+                  story: <Strong>{timeConvert(hltbData?.gameplayMain)}</Strong>
                 </Hltb>
-              )}
-              {hltbData.gameplayMainExtra > 0 && (
+              ) : null}
+              {hltbData?.gameplayMainExtra ? (
                 <Hltb>
-                  story + extras:{" "}
-                  <Strong>{timeConvert(hltbData.gameplayMainExtra)}</Strong>
+                  story + extras:
+                  <Strong>{timeConvert(hltbData?.gameplayMainExtra)}</Strong>
                 </Hltb>
-              )}
-              {hltbData.gameplayCompletionist > 0 && (
+              ) : null}
+              {hltbData?.gameplayCompletionist ? (
                 <Hltb>
-                  100%:{" "}
-                  <Strong>{timeConvert(hltbData.gameplayCompletionist)}</Strong>
+                  100%:
+                  <Strong>
+                    {timeConvert(hltbData?.gameplayCompletionist)}
+                  </Strong>
                 </Hltb>
-              )}
+              ) : null}
             </HltbContainer>
           </Block>
-        )}
+        ) : null}
       </Right>
       <Under>
         <Title>Visuals</Title>
